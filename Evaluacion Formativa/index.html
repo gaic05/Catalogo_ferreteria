@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto | Nexo Estudio</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <p class="brand">Nexo Estudio</p>
+        <p class="topbar-step">Escríbenos</p>
+      </header>
+
+      <main class="layout">
+        <section class="card" aria-labelledby="titulo-contacto">
+          <div class="intro">
+            <p class="eyebrow">Formulario de contacto</p>
+            <h1 id="titulo-contacto">Cuéntanos en qué podemos ayudarte</h1>
+            <p class="intro-copy">
+              Los campos marcados con <span aria-hidden="true">*</span> son
+              obligatorios. El formulario se valida en el navegador antes de
+              enviar el mensaje.
+            </p>
+          </div>
+
+          <form id="formulario-contacto" novalidate>
+            <fieldset>
+              <legend>1. Tus datos</legend>
+             
+              <div class="grid">
+                <div class="field">
+                  <label for="nombre"
+                    >Nombre <span aria-hidden="true">*</span></label
+                  >
+                  <input
+                    id="nombre"
+                    name="nombre"
+                    type="text"
+                    maxlength="40"
+                    minlength="2"
+                    aria-describedby="error-nombre"
+                  />
+                  <p
+                    id="error-nombre"
+                    class="error"
+                    data-error-for="nombre"
+                    role="alert"
+                  ></p>
+                </div>
+
+                <div class="field">
+                  <label for="apellidos"
+                    >Apellidos <span aria-hidden="true">*</span></label
+                  >
+                  <input
+                    id="apellidos"
+                    name="apellidos"
+                    type="text"
+                    maxlength="40"
+                    aria-describedby="error-apellidos"
+                  />
+                  <p
+                    id="error-apellidos"
+                    class="error"
+                    data-error-for="apellidos"
+                    role="alert"
+                  ></p>
+                </div>
+
+                <div class="field">
+                  <label for="correo"
+                    >Correo electrónico <span aria-hidden="true">*</span></label
+                  >
+                  <input
+                    id="correo"
+                    name="correo"
+                    type="email"
+                    autocomplete="email"
+                    placeholder="nombre@correo.cl"
+                    aria-describedby="error-correo"
+                  />
+                  <p
+                    id="error-correo"
+                    class="error"
+                    data-error-for="correo"
+                    role="alert"
+                  ></p>
+                </div>
+
+                <div class="field">
+                  <label for="telefono">Teléfono celular</label>
+                  <input
+                    id="telefono"
+                    name="telefono"
+                    type="tel"
+                    autocomplete="tel"
+                    inputmode="tel"
+                    placeholder="Opcional, ej: 9 1234 5678"
+                    aria-describedby="hint-telefono error-telefono"
+                  />
+                  <p id="hint-telefono" class="hint">
+                    Si lo escribes, debe ser un celular chileno de 9 dígitos.
+                  </p>
+                  <p
+                    id="error-telefono"
+                    class="error"
+                    data-error-for="telefono"
+                    role="alert"
+                  ></p>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>2. Tu mensaje</legend>
+
+              <div class="grid">
+                <div class="field field-wide">
+                  <label for="asunto"
+                    >Asunto <span aria-hidden="true">*</span></label
+                  >
+                  <select
+                    id="asunto"
+                    name="asunto"
+                    aria-describedby="error-asunto"
+                  >
+                    <option value="">Selecciona un asunto</option>
+                    <option value="consulta">Consulta general</option>
+                    <option value="soporte">Soporte</option>
+                    <option value="sugerencia">Sugerencia</option>
+                    <option value="otro">Otro</option>
+                  </select>
+                  <p
+                    id="error-asunto"
+                    class="error"
+                    data-error-for="asunto"
+                    role="alert"
+                  ></p>
+                </div>
+
+                <div class="field field-wide">
+                  <label for="mensaje"
+                    >Mensaje <span aria-hidden="true">*</span></label
+                  >
+                  <textarea
+                    id="mensaje"
+                    name="mensaje"
+                    rows="2"
+                    maxlength="500"
+                    placeholder="Describe tu consulta. Mínimo 20 caracteres."
+                    aria-describedby="hint-mensaje error-mensaje"
+                  ></textarea>
+                  <p id="hint-mensaje" class="hint">
+                    Entre 20 y 500 caracteres.
+                  </p>
+                  <p
+                    id="error-mensaje"
+                    class="error"
+                    data-error-for="mensaje"
+                    role="alert"
+                  ></p>
+                </div>
+              </div>
+
+              <div class="field checkbox">
+                <input
+                  id="privacidad"
+                  name="privacidad"
+                  type="checkbox"
+                  aria-describedby="error-privacidad"
+                />
+                <label for="privacidad">
+                  Acepto el uso de mis datos solo para responder este contacto
+                  <span aria-hidden="true">*</span>
+                </label>
+                <p
+                  id="error-privacidad"
+                  class="error"
+                  data-error-for="privacidad"
+                  role="alert"
+                ></p>
+              </div>
+            </fieldset>
+
+            <div class="actions">
+              <button type="submit" class="btn-primary">Enviar mensaje</button>
+            </div>
+          </form>
+
+          <section
+            id="panel-exito"
+            class="success-panel is-hidden"
+            tabindex="-1"
+            aria-live="polite"
+          >
+            <p class="eyebrow">Mensaje enviado</p>
+            <h2>Gracias, <span data-exito-nombre></span></h2>
+            <p>
+              Recibimos tu mensaje sobre <strong data-exito-asunto></strong>. Te
+              responderemos a <strong data-exito-correo></strong>.
+            </p>
+            <p class="success-note">
+              En esta actividad no hay backend: si llegaste aquí, el formulario
+              pasó todas las validaciones.
+            </p>
+          </section>
+        </section>
+
+        <aside class="aside-info" aria-labelledby="info-titulo">
+          <h2 id="info-titulo">Datos del estudio</h2>
+          <p class="aside-copy">
+            También puedes escribirnos o visitarnos en horario de atención.
+          </p>
+
+          <dl class="info-list">
+            <div>
+              <dt>Correo</dt>
+              <dd>hola@nexoestudio.cl</dd>
+            </div>
+            <div>
+              <dt>Teléfono</dt>
+              <dd>+56 9 1234 5678</dd>
+            </div>
+            <div>
+              <dt>Horario</dt>
+              <dd>Lunes a viernes, 9:00 a 18:00</dd>
+            </div>
+            <div>
+              <dt>Dirección</dt>
+              <dd>Av. Providencia 1234, Santiago</dd>
+            </div>
+          </dl>
+        </aside>
+      </main>
+    </div>
+
+    <script type="module" src="js/formulario-contacto.js"></script>
+  </body>
+</html>

@@ -1,0 +1,278 @@
+:root {
+  --bg: #f3efe6;
+  --surface: #fffdf8;
+  --ink: #1f1a14;
+  --muted: #5f574c;
+  --line: #d8d0c4;
+  --accent: #1f5c4d;
+  --accent-dark: #163f35;
+  --danger: #9b2c2c;
+  --danger-bg: #fdecec;
+  --ok: #2f6f4e;
+  --shadow: 0 18px 40px rgba(31, 26, 20, 0.08);
+  --radius: 18px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, #efe4cf 0, transparent 28%),
+    linear-gradient(180deg, var(--bg), #ebe4d7);
+}
+
+.page {
+  width: min(1120px, calc(100% - 32px));
+  margin: 32px auto 48px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: baseline;
+  margin-bottom: 24px;
+}
+
+.brand {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.topbar-step,
+.eyebrow,
+.hint,
+.intro-copy,
+.success-note,
+.aside-copy {
+  color: var(--muted);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.9fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.card,
+.aside-info {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.card {
+  padding: 28px;
+}
+
+.intro h1,
+.success-panel h2 {
+  margin: 8px 0 12px;
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+fieldset {
+  margin: 0 0 28px;
+  padding: 0;
+  border: 0;
+}
+
+legend {
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 18px;
+}
+
+.field-wide {
+  grid-column: 1 / -1;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+label {
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #cfc6b8;
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid rgba(31, 92, 77, 0.25);
+  border-color: var(--accent);
+}
+
+input.is-invalid,
+select.is-invalid,
+textarea.is-invalid {
+  border-color: var(--danger);
+  background: var(--danger-bg);
+}
+
+input.is-valid,
+select.is-valid,
+textarea.is-valid {
+  border-color: var(--ok);
+}
+
+.hint,
+.error {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.error {
+  color: var(--danger);
+  min-height: 1.1em;
+}
+
+.checkbox {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 8px 10px;
+  align-items: start;
+}
+
+.checkbox input {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+}
+
+.checkbox .error {
+  grid-column: 2;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-primary {
+  border: 0;
+  border-radius: 999px;
+  padding: 13px 22px;
+  background: var(--accent);
+  color: #f7f3ea;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: var(--accent-dark);
+}
+
+.aside-info {
+  padding: 24px;
+  position: sticky;
+  top: 20px;
+}
+
+.aside-info h2 {
+  margin: 0 0 8px;
+}
+
+.aside-copy {
+  margin: 0 0 20px;
+}
+
+.info-list {
+  margin: 0;
+}
+
+.info-list div {
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+
+.info-list dt {
+  margin: 0 0 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.info-list dd {
+  margin: 0;
+}
+
+.success-panel {
+  padding: 8px 0 0;
+}
+
+.success-panel h2 {
+  font-size: 1.6rem;
+}
+
+.is-hidden {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .layout,
+  .grid,
+  .topbar {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .aside-info {
+    position: static;
+    order: -1;
+  }
+}

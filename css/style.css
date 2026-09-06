@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Playwrite+DE+LA+Guides&display=swap');
+@import url(menu.css);
+
+body {
+    font-family: 'Oswald', sans-serif;
+    background-color: rgb(255, 255, 255);
+}
+
+#seccion-index {
+    border: 1px solid #999;
+    border-radius: 4px;
+    margin-top: 20px;
+    background-color: #f2f2f2;
+    padding: 16px;
+}
+
+section h1 {
+    font-family: 'Playwrite DE LA Guides', cursive;
+}
+
+.menu-navegacion {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  grid-column: 2;
+}
+
+.boton-registro {
+
+    font-size: medium;
+    grid-column: 3;
+    justify-self: end;
+    border-left: 1px solid #999;
+    padding-left: 10px;
+}
+
+h2 {
+    font-size: 60px;
+
+}
+
+input {
+    border: 0px;
+    height: 40px;
+    display: block;
+}
+
+input[type="submit"] {
+    background-color: blue;
+    color: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr auto 1fr;
+    padding-top: 10px;  
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;         
+    background-color: #ffffff;
+}
+
+.logo {
+    display: block;;
+    height: 40px;
+    width: auto px;
+}
+
+p {
+    font-size: large;
+    color:rgb(80, 78, 78)
+}

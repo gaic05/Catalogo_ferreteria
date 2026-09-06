@@ -1,0 +1,15 @@
+header {
+    font-weight: bold;
+    color: rgb(0, 106, 255);
+    font-size: 20px;
+    border-bottom: 1px solid #999;
+    padding-bottom: 8px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.active {
+    background-color: yellow;
+}

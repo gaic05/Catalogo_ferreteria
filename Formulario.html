@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario de Registro</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <div class="contenedor">
+    <h1>Registro de Usuario</h1>
+
+    <form id="formRegistro" novalidate>
+      <div class="campo">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" placeholder="Ej: Laura Gomez">
+        <span class="mensaje-error" id="errorNombre"></span>
+      </div>
+
+      <div class="campo">
+        <label for="correo">Correo electronico</label>
+        <input type="text" id="correo" placeholder="Ej: laura@correo.com">
+        <span class="mensaje-error" id="errorCorreo"></span>
+      </div>
+
+      <div class="campo">
+        <label for="telefono">Telefono (9 digitos)</label>
+        <input type="text" id="telefono" placeholder="Ej: 912345678">
+        <span class="mensaje-error" id="errorTelefono"></span>
+      </div>
+
+      <div class="campo campo-checkbox">
+        <label class="label-checkbox">
+          <input type="checkbox" id="aceptar">
+          Acepto los términos y condiciones
+        </label>
+        <span class="mensaje-error" id="errorAceptar"></span>
+      </div>
+
+      <button type="submit">Registrarse</button>
+      <p class="mensaje-exito" id="mensajeExito">Registro exitoso</p>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

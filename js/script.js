@@ -17,7 +17,7 @@ const errorAceptar = document.getElementById('errorAceptar');
 const mensajeExito = document.getElementById('mensajeExito');
 
 const regexNombre = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
-const regexCorreo = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
+const regexCorreo = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const regexTelefono = /^[0-9]{9}$/;
 
 function validarNombre() {

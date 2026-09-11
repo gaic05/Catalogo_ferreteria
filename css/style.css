@@ -5,7 +5,6 @@ body {
     font-family: 'Oswald', sans-serif;
     background-color: rgb(255, 255, 255);
 }
-
 #seccion-index {
     border: 1px solid #999;
     border-radius: 4px;
@@ -13,49 +12,39 @@ body {
     background-color: #f2f2f2;
     padding: 16px;
 }
-
 section h1 {
     font-family: 'Playwrite DE LA Guides', cursive;
 }
-
 .menu-navegacion {
   display: flex;
   gap: 20px;
   justify-content: center;
   grid-column: 2;
 }
-
 .boton-registro {
-
     font-size: medium;
     grid-column: 3;
     justify-self: end;
     border-left: 1px solid #999;
     padding-left: 10px;
 }
-
 h2 {
     font-size: 60px;
-
 }
-
 input {
     border: 0px;
     height: 40px;
     display: block;
 }
-
 input[type="submit"] {
     background-color: blue;
     color: white;
 }
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 header {
     display: grid;
     align-items: center;
@@ -66,14 +55,78 @@ header {
     padding-right: 10px;         
     background-color: #ffffff;
 }
-
 .logo {
     display: block;;
     height: 40px;
     width: auto px;
 }
-
 p {
     font-size: large;
     color:rgb(80, 78, 78)
+}
+
+.Formulario {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+.campo {
+    margin-bottom: 15px;
+}
+.campo label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.campo input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    height: 40px;
+}
+.campo input.error {
+    border: 2px solid red;
+}
+.campo input.valido {
+    border: 2px solid green;
+}
+.mensaje-error {
+    color: red;
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 4px;
+}
+.campo-checkbox {
+    display: flex;
+    flex-direction: column;
+}
+.label-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal;
+    cursor: pointer;
+}
+.label-checkbox input {
+    width: auto;
+    height: auto;
+}
+.Formulario button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.mensaje-exito {
+    color: green;
+    text-align: center;
+    display: none;
+    margin-top: 10px;
 }

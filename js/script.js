@@ -17,7 +17,7 @@ const regexTelefono = /^[0-9]{9}$/;
 function validarNombre() {
     const valor = nombre.value.trim();
     if (valor === ''){
-        nombre.classList.add('Error');
+        nombre.classList.add('error');
         errorNombre.textContent = 'El nombre no puede estar vacio.';
         return false;
     }
@@ -26,30 +26,32 @@ function validarNombre() {
     errorNombre.textContent = 'El nombre no puede contener numeros.';
     return false;
     }
-    nombre.classList.remove('Error');
+    nombre.classList.remove('error');
+    nombre.classList.add('valido');
     errorNombre.textContent = '';
     return true;
 }
 function validarCorreo(){
     const valor = correo.value.trim();
     if( valor === ''){
-        correo.classList.add('Error');
+        correo.classList.add('error');
         errorCorreo.textContent = 'El correo no puede estar vacio.';
         return false;
     }
     if (!regexCorreo.test(valor)){
-        correo.classList.add('Error');
+        correo.classList.add('error');
         errorCorreo.textContent = 'Formato de correo invalido.';
         return false;
     }
-    correo.classList.remove('Error');
+    correo.classList.remove('error');
+    correo.classList.add('valido');
     errorCorreo.textContent = '';
     return true;
 }
 function validarTelefono(){
     const valor = telefono.value.trim();
     if (valor === ''){
-        telefono.classList.add('Error');
+        telefono.classList.add('error');
         errorTelefono.textContent = 'El telefono no puede estar vacio.';
         return false;
     }
@@ -64,6 +66,7 @@ function validarTelefono(){
         return false;
   }
   telefono.classList.remove('error');
+  telefono.classList.add('valido');
   errorTelefono.textContent = '';
   return true;
 }
@@ -78,7 +81,8 @@ function validarAceptar(){
 nombre.addEventListener('input', validarNombre);
 correo.addEventListener('input', validarCorreo);
 telefono.addEventListener('input', validarTelefono);
-form.addEventListener('submit', function(e)){
+aceptar.addEventListener('change', validarAceptar);
+form.addEventListener('submit', function(e){
     e.preventDefault();
     const ok1 = validarNombre();
     const ok2 = validarCorreo();
@@ -87,7 +91,8 @@ form.addEventListener('submit', function(e)){
     if (ok1 && ok2 && ok3 && ok4){
         mensajeExito.style.display = 'block';
         form.reset();
+        [nombre, correo, telefono].forEach(input => input.classList.remove('valido'));
     } else {
         mensajeExito.style.display = 'none';
     }
-}
+});

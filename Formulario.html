@@ -6,7 +6,20 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
+<header>
+    <div>
+        <img src="images/Logo_ferreteria.png" alt="Logo ferreteria los maestros" class="logo" >
+    </div>
+    <nav class="menu-navegacion">
+        <a href="home.html">Inicio</a>
+        <a href="#">Catalogo</a>
+        <a href="#">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="boton-registro">
+        <a href="Formulario.html">Registrarse</a>
+    </div>
+  </header>
   <div class="Formulario">
     <h1>Registro de Usuario</h1>
 
@@ -15,6 +28,12 @@
         <label for="nombre">Nombre</label>
         <input type="text" id="nombre" placeholder="Ej: Juan Carlos">
         <span class="mensaje-error" id="errorNombre"></span>
+      </div>
+
+      <div class="campo">
+        <label for="apellidos">Apellidos</label>
+        <input type="text" id="apellidos" placeholder="Ej: Muñoz Ortiz">
+        <span class="mensaje-error" id="errorApellidos"></span>
       </div>
 
       <div class="campo">
@@ -27,6 +46,12 @@
         <label for="telefono">Telefono (9 digitos)</label>
         <input type="text" id="telefono" placeholder="Ej: 912345678">
         <span class="mensaje-error" id="errorTelefono"></span>
+      </div>
+
+      <div class="campo"> 
+        <label for="contrasena">Contraseña</label> 
+        <input type="password" id="contrasena" placeholder="Ingresa tu contraseña"> 
+        <span class="mensaje-error" id="errorContrasena"></span> 
       </div>
 
       <div class="campo campo-checkbox">

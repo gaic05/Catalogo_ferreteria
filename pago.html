@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Pago | Ferretería Los Maestros</title>
+    <link rel="icon" href="images/Logo_ferreteria.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/carrito.css" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <img src="images/Logo_ferreteria.png" alt="Logo ferreteria los maestros" class="logo">
+        </div>
+        <nav class="menu-navegacion">
+            <a href="home.html">Inicio</a>
+            <a href="catalogo.html">Catalogo</a>
+            <a href="#">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+        <div class="boton-registro">
+            <a href="carrito.html" class="enlace-carrito">Carrito <span id="contadorCarrito" class="contador-carrito" aria-label="productos en el carrito">0</span></a>
+            <a href="Formulario.html">Registrarse</a>
+        </div>
+    </header>
+
+    <main class="pago-pagina">
+        <h1>Finalizar compra</h1>
+
+        <!-- Se muestra si no hay productos en el carrito -->
+        <div id="pagoVacio" class="carrito-vacio" hidden>
+            <h2>No hay productos para pagar</h2>
+            <p>Agrega productos desde el catálogo para armar tu pedido.</p>
+            <a class="boton-principal" href="catalogo.html">Ver catálogo</a>
+        </div>
+
+        <div id="pagoContenido" class="pago-layout">
+            <form id="formPago" novalidate>
+
+                <fieldset class="bloque">
+                    <legend>Datos de contacto</legend>
+                    <div class="campo">
+                        <label for="pNombre">Nombre completo</label>
+                        <input type="text" id="pNombre" autocomplete="name" placeholder="Ej: Juan Carlos Muñoz">
+                        <span class="mensaje-error" data-error-for="pNombre"></span>
+                    </div>
+                    <div class="campos-fila">
+                        <div class="campo">
+                            <label for="pCorreo">Correo electrónico</label>
+                            <input type="text" id="pCorreo" inputmode="email" autocomplete="email" placeholder="Ej: juan@correo.com">
+                            <span class="mensaje-error" data-error-for="pCorreo"></span>
+                        </div>
+                        <div class="campo">
+                            <label for="pTelefono">Teléfono (9 dígitos)</label>
+                            <input type="text" id="pTelefono" inputmode="numeric" autocomplete="tel" placeholder="Ej: 912345678">
+                            <span class="mensaje-error" data-error-for="pTelefono"></span>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="bloque">
+                    <legend>Entrega</legend>
+                    <div class="opciones">
+                        <label class="label-checkbox">
+                            <input type="radio" name="entrega" id="entregaRetiro" value="retiro" checked>
+                            Retiro en tienda (gratis)
+                        </label>
+                        <label class="label-checkbox">
+                            <input type="radio" name="entrega" id="entregaDespacho" value="despacho">
+                            Despacho a domicilio
+                        </label>
+                    </div>
+                    <div id="datosDespacho" hidden>
+                        <div class="campos-fila">
+                            <div class="campo">
+                                <label for="pDireccion">Dirección</label>
+                                <input type="text" id="pDireccion" autocomplete="street-address" placeholder="Ej: Av. Brasil 1234">
+                                <span class="mensaje-error" data-error-for="pDireccion"></span>
+                            </div>
+                            <div class="campo">
+                                <label for="pComuna">Comuna</label>
+                                <input type="text" id="pComuna" placeholder="Ej: Valparaíso">
+                                <span class="mensaje-error" data-error-for="pComuna"></span>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="bloque">
+                    <legend>Método de pago</legend>
+                    <div class="opciones">
+                        <label class="label-checkbox">
+                            <input type="radio" name="metodo" id="metodoTarjeta" value="tarjeta" checked>
+                            Tarjeta de crédito o débito
+                        </label>
+                        <label class="label-checkbox">
+                            <input type="radio" name="metodo" id="metodoTransferencia" value="transferencia">
+                            Transferencia bancaria
+                        </label>
+                        <label class="label-checkbox" id="opcionTienda">
+                            <input type="radio" name="metodo" id="metodoTienda" value="tienda">
+                            Pagar en tienda al retirar
+                        </label>
+                    </div>
+
+                    <div id="panelTarjeta">
+                        <p class="panel-info">Modo demostración: no se realiza ningún cobro real. Para probar usa el número 4111 1111 1111 1111, una fecha futura y cualquier CVV.</p>
+                        <div class="campo">
+                            <label for="pTarjeta">Número de tarjeta</label>
+                            <input type="text" id="pTarjeta" inputmode="numeric" autocomplete="cc-number" placeholder="0000 0000 0000 0000">
+                            <span class="mensaje-error" data-error-for="pTarjeta"></span>
+                        </div>
+                        <div class="campo">
+                            <label for="pTitular">Nombre del titular</label>
+                            <input type="text" id="pTitular" autocomplete="cc-name" placeholder="Como aparece en la tarjeta">
+                            <span class="mensaje-error" data-error-for="pTitular"></span>
+                        </div>
+                        <div class="campos-fila">
+                            <div class="campo">
+                                <label for="pVence">Vencimiento (MM/AA)</label>
+                                <input type="text" id="pVence" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/AA">
+                                <span class="mensaje-error" data-error-for="pVence"></span>
+                            </div>
+                            <div class="campo">
+                                <label for="pCvv">CVV</label>
+                                <input type="text" id="pCvv" inputmode="numeric" autocomplete="cc-csc" placeholder="123">
+                                <span class="mensaje-error" data-error-for="pCvv"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="panelTransferencia" class="panel-info" hidden>
+                        <p><strong>Datos para transferir</strong></p>
+                        <p>Banco: [nombre del banco]<br>
+                            Tipo de cuenta: [corriente / vista]<br>
+                            N° de cuenta: [número de cuenta]<br>
+                            RUT: [RUT de la ferretería]<br>
+                            Correo para el comprobante: [correo de la ferretería]</p>
+                        <p>Tu pedido queda pendiente hasta confirmar la transferencia.</p>
+                    </div>
+
+                    <div id="panelTienda" class="panel-info" hidden>
+                        <p>Reserva tus productos ahora y paga en caja cuando vengas a retirarlos.</p>
+                    </div>
+                </fieldset>
+
+                <button type="submit" id="botonPagar" class="boton-principal">Pagar</button>
+            </form>
+
+            <aside id="resumenPago" class="carrito-resumen" aria-label="Resumen del pedido"></aside>
+        </div>
+
+        <!-- Se llena con JavaScript cuando el pago termina -->
+        <section id="pagoConfirmacion" class="confirmacion" aria-live="polite" hidden></section>
+    </main>
+
+    <script src="js/productos.js"></script>
+    <script src="js/carrito.js"></script>
+    <script src="js/pago.js"></script>
+</body>
+
+</html>

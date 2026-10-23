@@ -619,8 +619,8 @@ a {
 
 .boton-secundario {
     background-color: white;
-    color: #3498db;
-    border: 2px solid #3498db;
+    color: #202020;
+    border: 2px solid #999;
 }
 
 .boton-secundario:hover {
@@ -1025,7 +1025,7 @@ a {
     align-items: center;
     padding: 32px;
     border-radius: 10px;
-    background: linear-gradient(135deg, #3498db, #2471a3);
+    background-color: #999;
     color: white;
 }
 

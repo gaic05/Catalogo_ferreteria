@@ -942,6 +942,7 @@ a {
     margin-bottom: 6px;
 }
 
+/* ---------- Pantallas pequeñas ---------- */
 
 @media (max-width: 800px) {
     .carrito-layout,
@@ -973,6 +974,8 @@ a {
     }
 }
 
+/* ---------- Acciones del comprobante ---------- */
+
 .confirmacion-acciones {
     display: flex;
     flex-direction: column;
@@ -984,6 +987,8 @@ a {
 .confirmacion-acciones .boton-texto {
     align-self: center;
 }
+
+/* ---------- Impresión: solo se imprime el comprobante ---------- */
 
 @media print {
     header,
@@ -1002,12 +1007,17 @@ a {
     }
 }
 
+/* ---------- Celulares angostos: el menú cabe en una sola línea ---------- */
+
 @media (max-width: 480px) {
     .menu-navegacion {
         gap: 12px;
         font-size: 17px;
     }
 }
+
+
+/* ---------- Inicio (tienda) ---------- */
 
 .inicio {
     max-width: 1200px;
@@ -1017,6 +1027,8 @@ a {
     flex-direction: column;
     gap: 32px;
 }
+
+/* Portada */
 
 .hero {
     display: grid;
@@ -1104,6 +1116,7 @@ a {
     color: rgb(80, 78, 78);
 }
 
+/* Secciones */
 
 .seccion-inicio-encabezado {
     display: flex;
@@ -1122,6 +1135,7 @@ a {
     font-size: 1rem;
 }
 
+/* Tarjeta de oferta */
 
 .producto-oferta {
     position: relative;
@@ -1158,6 +1172,8 @@ a {
     font-weight: 500;
     color: green;
 }
+
+/* Categorías */
 
 .categorias-grilla {
     display: grid;
@@ -1218,5 +1234,123 @@ a {
     .seccion-inicio-encabezado {
         flex-direction: column;
         align-items: flex-start;
+    }
+}
+
+
+/* ---------- Términos y condiciones ---------- */
+
+.campo .enlace-terminos {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    color: #3498db;
+    font-family: inherit;
+    font-size: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.campo .enlace-terminos:hover {
+    color: #2980b9;
+}
+
+.campo .enlace-terminos:focus-visible {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+.terminos-fondo {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.55);
+}
+
+.terminos-ventana {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 720px;
+    max-height: 90vh;
+    border-radius: 10px;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.terminos-ventana:focus {
+    outline: none;
+}
+
+.terminos-encabezado {
+    padding: 18px 24px 12px;
+    border-bottom: 1px solid #ccc;
+}
+
+.terminos-encabezado h2 {
+    font-size: 1.6rem;
+    color: #333333;
+}
+
+.terminos-encabezado p {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.terminos-cuerpo {
+    flex: 1;
+    padding: 16px 24px;
+    overflow-y: auto;
+}
+
+.terminos-cuerpo section {
+    margin-bottom: 18px;
+}
+
+.terminos-cuerpo h3 {
+    margin-bottom: 6px;
+    font-size: 1.1rem;
+    color: #333333;
+}
+
+.terminos-cuerpo p {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.terminos-pie {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px 24px;
+    border-top: 1px solid #ccc;
+    background-color: #f2f2f2;
+}
+
+.terminos-pie .boton-principal,
+.terminos-pie .boton-secundario {
+    width: auto;
+    padding: 10px 20px;
+}
+
+@media (max-width: 600px) {
+    .terminos-encabezado,
+    .terminos-cuerpo,
+    .terminos-pie {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .terminos-pie .boton-principal,
+    .terminos-pie .boton-secundario {
+        width: 100%;
     }
 }

@@ -1,5 +1,5 @@
-import { useState } from "react";
-
+import { useState, useRef } from "react";
+import TerminosCondiciones from "./TerminosCondiciones.jsx";
 
 const REGEX_NOMBRE = /^[A-Za-zÁÉÍÓÚÜáéíóúüÑñ\s]+$/;
 const REGEX_CORREO = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -49,8 +49,9 @@ const VALORES_INICIALES = {
   contrasena: "",
   aceptar: false,
 };
-function Campo({ id, etiqueta, tipo = "text", placeholder, valor, error, onCambio }) {
 
+
+function Campo({ id, etiqueta, tipo = "text", placeholder, valor, error, onCambio }) {
   const clase = error ? "error" : error === "" ? "valido" : "";
   return (
     <div className="campo">
@@ -68,10 +69,14 @@ function Campo({ id, etiqueta, tipo = "text", placeholder, valor, error, onCambi
     </div>
   );
 }
+
+
 export default function Formulario() {
   const [valores, setValores] = useState(VALORES_INICIALES);
   const [errores, setErrores] = useState({});
   const [exito, setExito] = useState(false);
+  const [verTerminos, setVerTerminos] = useState(false);
+  const refEnlaceTerminos = useRef(null);
 
   const handleCambio = (campo, valor) => {
     setValores((v) => ({ ...v, [campo]: valor }));
@@ -97,6 +102,17 @@ export default function Formulario() {
     setExito(true);
     setValores(VALORES_INICIALES);
     setErrores({});
+  };
+
+  const cerrarTerminos = () => {
+    setVerTerminos(false);
+
+    setTimeout(() => refEnlaceTerminos.current?.focus(), 0);
+  };
+
+  const aceptarTerminos = () => {
+    handleCambio("aceptar", true);
+    cerrarTerminos();
   };
 
   return (
@@ -154,7 +170,17 @@ export default function Formulario() {
               checked={valores.aceptar}
               onChange={(e) => handleCambio("aceptar", e.target.checked)}
             />
-            Acepto los términos y condiciones
+            <span>
+              Acepto los{" "}
+              <button
+                type="button"
+                className="enlace-terminos"
+                ref={refEnlaceTerminos}
+                onClick={() => setVerTerminos(true)}
+              >
+                términos y condiciones
+              </button>
+            </span>
           </label>
           <span className="mensaje-error">{errores.aceptar}</span>
         </div>
@@ -167,6 +193,8 @@ export default function Formulario() {
           </p>
         )}
       </form>
+
+      {verTerminos && <TerminosCondiciones onCerrar={cerrarTerminos} onAceptar={aceptarTerminos} />}
     </div>
   );
 }
